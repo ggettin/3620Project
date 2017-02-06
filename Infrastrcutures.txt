@@ -1,0 +1,70 @@
+For each infrastructure listed, the following information must be included:
+
+1. URL to the web site of the infrastructure or URL to the installation manual of the selected distributed platform
+
+2. Name of the operating system for all the nodes
+
+3. Name of the scheduler
+
+4. Name of the distributed/parallel file systems
+
+ 
+
+5. Name of the CloudLab site that would best represent this infrastructure. 
+
+_____________________________________________________________________________
+
+
+
+First infrastructure Name:
+
+1.
+
+
+2.
+
+
+3.
+
+
+4.
+
+
+5.
+
+
+
+
+Second infrastructure Name:
+
+1.
+
+
+2.
+
+
+3.
+
+
+4.
+
+
+5.
+
+
+Third infrastructure Name:
+
+1.
+
+
+2.
+
+
+3.
+
+
+4.
+
+
+5.
+
