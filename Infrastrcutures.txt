@@ -16,7 +16,7 @@ _____________________________________________________________________________
 
 
 
-First infrastructure Name:
+(Greg)First infrastructure Name: Stampede (stampede.tacc.xsede.org)
 
 1.
 
@@ -35,7 +35,7 @@ First infrastructure Name:
 
 
 
-Second infrastructure Name:
+(Aaron)Second infrastructure Name:
 
 1.
 
@@ -52,7 +52,7 @@ Second infrastructure Name:
 5.
 
 
-Third infrastructure Name:
+(CJ)Third infrastructure Name:
 
 1.
 
@@ -68,7 +68,9 @@ Third infrastructure Name:
 
 5.
 
-Fourth infrastructure Name:
+
+
+(Edward)Fourth infrastructure Name:
 
 1.
 
