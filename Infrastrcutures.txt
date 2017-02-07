@@ -8,30 +8,27 @@ For each infrastructure listed, the following information must be included:
 
 4. Name of the distributed/parallel file systems
 
- 
-
 5. Name of the CloudLab site that would best represent this infrastructure. 
 
 _____________________________________________________________________________
 
 
 
-(Greg)First infrastructure Name: Stampede (stampede.tacc.xsede.org)
+First infrastructure Name: Stampede (stampede.tacc.xsede.org)
 
-1.
-
-
-2.
+1. https://portal.xsede.org/tacc-stampede
 
 
-3.
+2. Linux (CentOS)
 
 
-4.
+3. Stampede uses Slurm as a scheduler
+
+
+4. Lustre 2.1.3, parallel File System
 
 
 5.
-
 
 
 
