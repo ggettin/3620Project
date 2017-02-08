@@ -7,81 +7,26 @@ For each infrastructure listed, the following information must be included:
 3. Name of the scheduler
 
 4. Name of the distributed/parallel file systems
-
 5. Name of the CloudLab site that would best represent this infrastructure. 
 
 _____________________________________________________________________________
 
 
 
-First infrastructure Name: Stampede (stampede.tacc.xsede.org)
+infrastructure Name: Wrangler (wrangler.tacc.xsede.org)
 
-1. https://portal.xsede.org/tacc-stampede
-
-
-2. Linux (CentOS)
+1.  https://portal.xsede.org/tacc-wrangler
 
 
-3. Stampede uses Slurm as a scheduler
+2.  Linux (CentOS)
 
 
-4. Lustre 2.1.3, parallel File System
+3.  Slurm
 
 
-5. Wisconsin/Cisco is the most similar CloudLab site. Both use 2 x 8 Core Intel E5s 
+4.  Lustre Parallel File System
 
 
-
-(Aaron)Second infrastructure Name:
-
-1.
-
-
-2.
-
-
-3.
-
-
-4.
-
-
-5.
-
-
-(CJ)Third infrastructure Name:
-
-1.
-
-
-2.
-
-
-3.
-
-
-4.
-
-
-5.
-
-
-
-(Edward)Fourth infrastructure Name:
-
-1.
-
-
-2.
-
-
-3.
-
-
-4.
-
-
-5.
-
+5.  The closest to this system is Utah/HP due to the core count being similar
 
 
