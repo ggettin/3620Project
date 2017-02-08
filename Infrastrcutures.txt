@@ -28,7 +28,7 @@ First infrastructure Name: Stampede (stampede.tacc.xsede.org)
 4. Lustre 2.1.3, parallel File System
 
 
-5.
+5. Wisconsin/Cisco is the most similar CloudLab site. Both use 2 x 8 Core Intel E5s 
 
 
 
