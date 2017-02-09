@@ -13,20 +13,20 @@ _____________________________________________________________________________
 
 
 
-infrastructure Name: Wrangler (wrangler.tacc.xsede.org)
+infrastructure Name: Cowboy (cowboy.okstate.xsede.org)
 
-1.  https://portal.xsede.org/tacc-wrangler
+1.  https://hpcc.okstate.edu/
 
 
 2.  Linux (CentOS)
 
 
-3.  Slurm
+3.  Torque/Maui
 
 
-4.  Lustre Parallel File System
+4.  Panasas Parallel File System
 
 
-5.  The closest to this system is Utah/HP due to the core count being similar
+5.  Clemson's CloudLab site seems to match Cowboy's specs the best.
 
 
