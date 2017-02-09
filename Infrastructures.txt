@@ -27,6 +27,6 @@ infrastructure Name: Cowboy (cowboy.okstate.xsede.org)
 4.  Panasas Parallel File System
 
 
-5.  Clemson's CloudLab site seems to match Cowboy's specs the best.
+5.  Utah's CloudLab site seems to match Cowboy's specs the best.
 
 
