@@ -1,3 +1,12 @@
+Cowboy:
+
+	252 standard compute nodes
+		dual intel Xeon E5-2620 Sandy Bridge hex core 2.0 GHz w/32GB of 1333 MHz RAM
+	2 “fat nodes”
+		256 GB RAM and an NVIDIA Tesla C2075 card
+
+
+
 Link to hardware types on Cloudlab:
   http://docs.cloudlab.us/hardware.html
   
