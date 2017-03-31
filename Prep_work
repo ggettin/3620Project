@@ -11,3 +11,8 @@ Link to hardware types on Cloudlab:
   http://docs.cloudlab.us/hardware.html
   
 I think C6220 is the best match to Cowboy (Dual 8-core processors vs. Dual 6-Core, 64GB of RAM vs. 32GB)
+
+Home node: C8220
+Fat node: C4130
+
+Install mpi, nfs, and stuff: check for the Canvas discussion thread
