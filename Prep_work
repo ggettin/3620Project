@@ -16,3 +16,6 @@ Home node: C8220
 Fat node: C4130
 
 Install mpi, nfs, and stuff: check for the Canvas discussion thread
+
+For our environment modules, I think we can just install the environment-modules package mentioned in Steven Nix's discussion thread,
+then copy the module files from Palmetto, which are stored at /software/modulefiles/
