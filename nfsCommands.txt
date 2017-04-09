@@ -1,0 +1,77 @@
+
+===========================  Server: ========================================
+
+yum -y install nfs-utils
+systemctl enable nfs-server.service
+systemctl start nfs-server.service
+
+mkdir /var/nfs
+chown nfsnobody:nfsnobody /var/nfs
+chmod 755 /var/nfs
+
+
+echo "/home 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports              
+echo "/home 192.168.0.3(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports              
+echo "/home 192.168.0.4(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports               
+echo "/home 192.168.0.5(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports               
+echo "/home 192.168.0.6(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports               
+echo "/opt 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports                
+echo "/opt 192.168.0.3(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports                
+echo "/opt 192.168.0.4(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports                
+echo "/opt 192.168.0.5(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+echo "/opt 192.168.0.6(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports                 
+echo "/var/nfs 192.168.0.2(rw,sync,no_subtree_check)" >> /etc/exports                           
+echo "/var/nfs 192.168.0.3(rw,sync,no_subtree_check)" >> /etc/exports                           
+echo "/var/nfs 192.168.0.4(rw,sync,no_subtree_check)" >> /etc/exports                           
+echo "/var/nfs 192.168.0.5(rw,sync,no_subtree_check)" >> /etc/exports                           
+echo "/var/nfs 192.168.0.6(rw,sync,no_subtree_check)" >> /etc/exports 
+
+
+exportfs -a                          
+
+
+===========================  Client: ========================================
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.1:/var/nfs /var/nfs
+df -h
+mount
+
+
+
+For Aaron. To set up the shared /opt:
+
+-in cloud lab make a profile like ours, just with two nodes. Set the internal ip's by clicking the "link" in the topology editor
+-make head node 192.168.0.1
+-make client node 192.168.0.2
+-instantiate the profile
+-On the head node, ssh/ su- in and run:
+	yum -y install nfs-utils
+	systemctl enable nfs-server.service
+	systemctl start nfs-server.service
+
+	mkdir /var/nfs
+	chown nfsnobody:nfsnobody /var/nfs
+	chmod 755 /var/nfs
+
+
+	echo "/home 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports              
+	echo "/opt 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports                                
+	echo "/var/nfs 192.168.0.2(rw,sync,no_subtree_check)" >> /etc/exports                           
+
+	exportfs -a                          
+
+-On client node, ssh/ su- in and run:
+	mkdir -p /var/nfs
+	mount 192.168.0.1:/home /home
+	mount 192.168.0.1:/opt /opt
+	mount 192.168.0.1:/var/nfs /var/nfs
+	df -h
+	mount
+	
+	
+/opt will now be all set up
+
+
