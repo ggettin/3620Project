@@ -23,6 +23,8 @@ echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
 # sed -i '0,/compute-3/s/compute-3/fat/' /etc/hosts
 # sed -i '0,/compute-3/s/compute-3/scratch/' /etc/hosts
 
+cd /root
+
 mkdir -p /var/nfs
 mkdir -p /scratch
 mount 192.168.0.1:/home /home

@@ -1,3 +1,5 @@
+cd /root
+
 yum -y install nfs-utils
 systemctl enable nfs-server.service
 systemctl start nfs-server.service

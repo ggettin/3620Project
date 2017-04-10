@@ -48,6 +48,8 @@ mount
 # sed -i '0,/scratch/s/scratch/fat/' /etc/hosts
 # sed -i '0,/scratch/s/scratch/head/' /etc/hosts
 
+cd /root
+
 hostname > /etc/hosts
 hostname >> /etc/hosts
 hostname >> /etc/hosts
