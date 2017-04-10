@@ -33,7 +33,7 @@ exportfs -a
 
 AND EVENTUALLY:
 
-mkdir -p /var/nfs
+mkdir -p /scratch
 mount 192.168.0.6:/scratch /scratch
 df -h
 mount
@@ -46,6 +46,7 @@ mount
 Compute-1:
 
 mkdir -p /var/nfs
+mkdir -p /scratch
 mount 192.168.0.1:/home /home
 mount 192.168.0.1:/opt /opt
 mount 192.168.0.6:/scratch /scratch
@@ -58,6 +59,7 @@ mount
 Compute-2:
 
 mkdir -p /var/nfs
+mkdir -p /scratch
 mount 192.168.0.1:/home /home
 mount 192.168.0.1:/opt /opt
 mount 192.168.0.6:/scratch /scratch
@@ -70,6 +72,7 @@ mount
 Compute-3:
 
 mkdir -p /var/nfs
+mkdir -p /scratch
 mount 192.168.0.1:/home /home
 mount 192.168.0.1:/opt /opt
 mount 192.168.0.6:/scratch /scratch
@@ -81,6 +84,7 @@ mount
 Fat:
 
 mkdir -p /var/nfs
+mkdir -p /scratch
 mount 192.168.0.1:/home /home
 mount 192.168.0.1:/opt /opt
 mount 192.168.0.6:/scratch /scratch
@@ -95,9 +99,9 @@ yum -y install nfs-utils
 systemctl enable nfs-server.service
 systemctl start nfs-server.service
 
-mkdir /var/nfs
-chown nfsnobody:nfsnobody /var/nfs
-chmod 755 /var/nfs
+mkdir /scratch
+chown nfsnobody:nfsnobody /scratch
+chmod 755 /scratch
 
 
 echo "/scratch 192.168.0.1(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports              
