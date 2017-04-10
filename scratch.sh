@@ -1,3 +1,27 @@
+yum -y install nfs-utilis
+systemctl enable nfs-server.service
+systemctl start nfs-server.service
+
+mkdir /scratch
+chown nfsnobody:nfsnobody /scratch
+chmod 755 /scratch
+
+echo "/scratch 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+echo "/scratch 192.168.0.3(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+echo "/scratch 192.168.0.4(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+echo "/scratch 192.168.0.5(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+echo "/scratch 192.168.0.1(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+
+exportfs -a
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.1:/var/nfs /var/nfs
+
+df -h
+mount
+
 echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
 echo y | yum install git
 git clone https://github.com/adaptivecomputing/torque.git -b 6.0.1 6.0.1
@@ -47,27 +71,3 @@ qterm
 cp contrib/systemd/pbs_server.service /usr/lib/systemd/system/
 systemctl enable pbs_server.service
 systemctl start pbs_server.service
-
-yum -y install nfs-utilis
-systemctl enable nfs-server.service
-systemctl start nfs-server.service
-
-mkdir /scratch
-chown nfsnobody:nfsnobody /scratch
-chmod 755 /scratch
-
-echo "/scratch 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
-echo "/scratch 192.168.0.3(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
-echo "/scratch 192.168.0.4(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
-echo "/scratch 192.168.0.5(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
-echo "/scratch 192.168.0.1(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
-
-exportfs -a
-
-mkdir -p /var/nfs
-mount 192.168.0.1:/home /home
-mount 192.168.0.1:/opt /opt
-mount 192.168.0.1:/var/nfs /var/nfs
-
-df -h
-mount

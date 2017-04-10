@@ -1,27 +1,37 @@
 echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
-echo y | yum install git
-git clone https://github.com/adaptivecomputing/torque.git -b 6.0.1 6.0.1
-cd 6.0.1
-./autogen.sh
-./configure
-make
-make install
+# echo y | yum install git
+# git clone https://github.com/adaptivecomputing/torque.git -b 6.0.1 6.0.1
+# cd 6.0.1
+# ./autogen.sh
+# ./configure
+# make
+# make install
+#
+# echo "/usr/local/lib" > /etc/ld.so.conf.d/torque.conf
+# ldconfig
+#
+# hostname > /var/spool/torque/server_priv/nodes
+# hostname >> /var/spool/torque/server_priv/nodes
+# hostname >> /var/spool/torque/server_priv/nodes
+# hostname >> /var/spool/torque/server_priv/nodes
+# hostname >> /var/spool/torque/server_priv/nodes
+# hostname >> /var/spool/torque/server_priv/nodes
+#
+# sed -i '0,/fat/s/fat/compute-1/'
+# sed -i '0,/fat/s/fat/compute-2/'
+# sed -i '0,/fat/s/fat/compute-3/'
+# sed -i '0,/fat/s/fat/head/'
+# sed -i '0,/fat/s/fat/scratch/'
 
-echo "/usr/local/lib" > /etc/ld.so.conf.d/torque.conf
-ldconfig
+mkdir -p /var/nfs
+mkdir -p /scratch
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.6:/scratch /scratch
+mount 192.168.0.1:/var/nfs /var/nfs
 
-hostname > /var/spool/torque/server_priv/nodes
-hostname >> /var/spool/torque/server_priv/nodes
-hostname >> /var/spool/torque/server_priv/nodes
-hostname >> /var/spool/torque/server_priv/nodes
-hostname >> /var/spool/torque/server_priv/nodes
-hostname >> /var/spool/torque/server_priv/nodes
-
-sed -i '0,/fat/s/fat/compute-1/'
-sed -i '0,/fat/s/fat/compute-2/'
-sed -i '0,/fat/s/fat/compute-3/'
-sed -i '0,/fat/s/fat/head/'
-sed -i '0,/fat/s/fat/scratch/'
+df -h
+mount
 
 hostname > /etc/hosts
 hostname >> /etc/hosts
@@ -37,22 +47,13 @@ sed -i '0,/fat/s/fat/192.168.0.1 head/'
 sed -i '0,/fat/s/fat/192.168.0.6 scratch/'
 sed -i '0,/fat/s/fat/192.168.0.5 fat/'
 
-cp contrib/systemd/trqauthd.service /usr/lib/systemd/system/
-systemctl enable trqauthd.service
-systemctl start trqauthd.service
-
-echo y | ./torque.setup root
-qterm
-
-cp contrib/systemd/pbs_server.service /usr/lib/systemd/system/
-systemctl enable pbs_server.service
-systemctl start pbs_server.service
-
-mkdir -p /var/nfs
-mkdir -p /scratch
-mount 192.168.0.1:/home /home
-mount 192.168.0.1:/opt /opt
-mount 192.168.0.6:/scratch /scratch
-mount 192.168.0.1:/var/nfs /var/nfs
-df -h
-mount
+# cp contrib/systemd/trqauthd.service /usr/lib/systemd/system/
+# systemctl enable trqauthd.service
+# systemctl start trqauthd.service
+#
+# echo y | ./torque.setup root
+# qterm
+#
+# cp contrib/systemd/pbs_server.service /usr/lib/systemd/system/
+# systemctl enable pbs_server.service
+# systemctl start pbs_server.service
