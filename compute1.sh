@@ -49,9 +49,11 @@ systemctl enable pbs_server.service
 systemctl start pbs_server.service
 
 mkdir -p /var/nfs
+mkdir -p /scratch
 mount 192.168.0.1:/home /home
 mount 192.168.0.1:/opt /opt
-mount 192.168.0.1:/var/nfs /var/nfs
+mount 192.168.0.1:/scratch /scratch
+mount 192.168.0.6:/var/nfs /var/nfs
 df -h
 mount
 
