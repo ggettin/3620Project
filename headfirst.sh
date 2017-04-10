@@ -74,7 +74,4 @@ echo "/var/nfs 192.168.0.6(rw,sync,no_subtree_check)" >> /etc/exports
 
 exportfs -a
 
-mkdir -p /scratch
-mount 192.168.0.6:/var/nfs /var/nfs
-
 yum -y install environment-modules

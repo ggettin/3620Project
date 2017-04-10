@@ -48,10 +48,13 @@ cp contrib/systemd/pbs_server.service /usr/lib/systemd/system/
 systemctl enable pbs_server.service
 systemctl start pbs_server.service
 
-mkdir -p /var/nfs
-mkdir -p /scratch
-mount 192.168.0.1:/home /home
-mount 192.168.0.1:/opt /opt
+yum -y install nfs-utilis
+systemctl enable nfs-server.service
+systemctl start nfs-server.service
+
+mkdir /scratch
+chown nfsnobody:nfsnobody /scratch
+chmod 755 /scratch
 
 echo "/scratch 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
 echo "/scratch 192.168.0.3(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
@@ -59,9 +62,12 @@ echo "/scratch 192.168.0.4(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exp
 echo "/scratch 192.168.0.5(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 echo "/scratch 192.168.0.1(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 
-mkdir /scratch
-chown nfsnobody:nfsnobody /scratch
-chmod 755 /scratch
+exportfs -a
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.1:/var/nfs /var/nfs
 
 df -h
 mount
