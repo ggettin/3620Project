@@ -1,6 +1,6 @@
 echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
 
-yum -y install nfs-utilis
+yum -y install nfs-utils
 systemctl enable nfs-server.service
 systemctl start nfs-server.service
 
