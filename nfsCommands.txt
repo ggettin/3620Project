@@ -1,5 +1,5 @@
 
-===========================  Server: ========================================
+===========================  HEAD: ========================================
 
 yum -y install nfs-utils
 systemctl enable nfs-server.service
@@ -27,10 +27,92 @@ echo "/var/nfs 192.168.0.5(rw,sync,no_subtree_check)" >> /etc/exports
 echo "/var/nfs 192.168.0.6(rw,sync,no_subtree_check)" >> /etc/exports 
 
 
-exportfs -a                          
+exportfs -a    
 
 
-===========================  Client: ========================================
+
+AND EVENTUALLY:
+
+mkdir -p /var/nfs
+mount 192.168.0.6:/scratch /scratch
+df -h
+mount
+
+                      
+
+
+===========================  Computes(1,2,3) and Fat: ========================================
+
+Compute-1:
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.6:/scratch /scratch
+mount 192.168.0.1:/var/nfs /var/nfs
+df -h
+mount
+
+
+
+Compute-2:
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.6:/scratch /scratch
+mount 192.168.0.1:/var/nfs /var/nfs
+df -h
+mount
+
+
+
+Compute-3:
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.6:/scratch /scratch
+mount 192.168.0.1:/var/nfs /var/nfs
+df -h
+mount
+
+
+Fat:
+
+mkdir -p /var/nfs
+mount 192.168.0.1:/home /home
+mount 192.168.0.1:/opt /opt
+mount 192.168.0.6:/scratch /scratch
+mount 192.168.0.1:/var/nfs /var/nfs
+df -h
+mount
+
+
+===========================  Scratch   ========================================
+
+yum -y install nfs-utils
+systemctl enable nfs-server.service
+systemctl start nfs-server.service
+
+mkdir /var/nfs
+chown nfsnobody:nfsnobody /var/nfs
+chmod 755 /var/nfs
+
+
+echo "/scratch 192.168.0.1(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports              
+echo "/scratch 192.168.0.2(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports              
+echo "/scratch 192.168.0.3(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports               
+echo "/scratch 192.168.0.4(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports               
+echo "/scratch 192.168.0.5(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports               
+
+
+exportfs -a    
+
+
+
+AND EVENTUALLY:
+
 
 mkdir -p /var/nfs
 mount 192.168.0.1:/home /home
@@ -38,6 +120,16 @@ mount 192.168.0.1:/opt /opt
 mount 192.168.0.1:/var/nfs /var/nfs
 df -h
 mount
+
+
+
+
+
+
+
+
+
+
 
 
 
