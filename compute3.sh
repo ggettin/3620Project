@@ -17,11 +17,11 @@ echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
 # hostname >> /var/spool/torque/server_priv/nodes
 # hostname >> /var/spool/torque/server_priv/nodes
 #
-# sed -i '0,/compute-3/s/compute-3/compute-1/'
-# sed -i '0,/compute-3/s/compute-3/compute-2/'
-# sed -i '0,/compute-3/s/compute-3/head/'
-# sed -i '0,/compute-3/s/compute-3/fat/'
-# sed -i '0,/compute-3/s/compute-3/scratch/'
+# sed -i '0,/compute-3/s/compute-3/compute-1/' /etc/hosts
+# sed -i '0,/compute-3/s/compute-3/compute-2/' /etc/hosts
+# sed -i '0,/compute-3/s/compute-3/head/' /etc/hosts
+# sed -i '0,/compute-3/s/compute-3/fat/' /etc/hosts
+# sed -i '0,/compute-3/s/compute-3/scratch/' /etc/hosts
 
 mkdir -p /var/nfs
 mkdir -p /scratch
@@ -40,12 +40,12 @@ hostname >> /etc/hosts
 hostname >> /etc/hosts
 hostname >> /etc/hosts
 
-sed -i '0,/compute-3/s/compute-3/192.168.0.2 compute-1/'
-sed -i '0,/compute-3/s/compute-3/192.168.0.3 compute-2/'
-sed -i '0,/compute-3/s/compute-3/192.168.0.1 head/'
-sed -i '0,/compute-3/s/compute-3/192.168.0.5 fat/'
-sed -i '0,/compute-3/s/compute-3/192.168.0.6 scratch/'
-sed -i '0,/compute-3/s/compute-3/192.168.0.4 compute-3/'
+sed -i '0,/compute-3/s/compute-3/192.168.0.2 compute-1/' /etc/hosts
+sed -i '0,/compute-3/s/compute-3/192.168.0.3 compute-2/' /etc/hosts
+sed -i '0,/compute-3/s/compute-3/192.168.0.1 head/' /etc/hosts
+sed -i '0,/compute-3/s/compute-3/192.168.0.5 fat/' /etc/hosts
+sed -i '0,/compute-3/s/compute-3/192.168.0.6 scratch/' /etc/hosts
+sed -i '0,/compute-3/s/compute-3/192.168.0.4 compute-3/' /etc/hosts
 
 # cp contrib/systemd/trqauthd.service /usr/lib/systemd/system/
 # systemctl enable trqauthd.service

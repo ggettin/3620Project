@@ -23,11 +23,11 @@ hostname >> /var/spool/torque/server_priv/nodes
 hostname >> /var/spool/torque/server_priv/nodes
 hostname >> /var/spool/torque/server_priv/nodes
 
-sed -i '0,/head/s/head/compute-1/'
-sed -i '0,/head/s/head/compute-2/'
-sed -i '0,/head/s/head/compute-3/'
-sed -i '0,/head/s/head/fat/'
-sed -i '0,/head/s/head/scratch/'
+sed -i '0,/head/s/head/compute-1/' /etc/hosts
+sed -i '0,/head/s/head/compute-2/' /etc/hosts
+sed -i '0,/head/s/head/compute-3/' /etc/hosts
+sed -i '0,/head/s/head/fat/' /etc/hosts
+sed -i '0,/head/s/head/scratch/' /etc/hosts
 
 hostname > /etc/hosts
 hostname >> /etc/hosts
@@ -36,12 +36,12 @@ hostname >> /etc/hosts
 hostname >> /etc/hosts
 hostname >> /etc/hosts
 
-sed -i '0,/head/s/head/192.168.0.2 compute-1/'
-sed -i '0,/head/s/head/192.168.0.3 compute-2/'
-sed -i '0,/head/s/head/192.168.0.4 compute-3/'
-sed -i '0,/head/s/head/192.168.0.5 fat/'
-sed -i '0,/head/s/head/192.168.0.6 scratch/'
-sed -i '0,/head/s/head/192.168.0.1 head/'
+sed -i '0,/head/s/head/192.168.0.2 compute-1/' /etc/hosts
+sed -i '0,/head/s/head/192.168.0.3 compute-2/' /etc/hosts
+sed -i '0,/head/s/head/192.168.0.4 compute-3/' /etc/hosts
+sed -i '0,/head/s/head/192.168.0.5 fat/' /etc/hosts
+sed -i '0,/head/s/head/192.168.0.6 scratch/' /etc/hosts
+sed -i '0,/head/s/head/192.168.0.1 head/' /etc/hosts
 
 cp contrib/systemd/trqauthd.service /usr/lib/systemd/system/
 systemctl enable trqauthd.service
