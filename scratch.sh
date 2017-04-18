@@ -75,6 +75,6 @@ sed -i '0,/scratch/s/scratch/192.168.0.6 scratch/' /etc/hosts
 # systemctl enable pbs_server.service
 # systemctl start pbs_server.service
 
-yum install -y environment-modules
-source ~/.bashrc
-module use /opt/modulefiles
+#yum install -y environment-modules
+#source ~/.bashrc
+#module use /opt/modulefiles
