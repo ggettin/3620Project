@@ -1,0 +1,23 @@
+#%Module1.0##
+
+module-whatis	"Set up environment for the OpenMPI libraries (autoselect interconnect)"
+
+# for Tcl script use only
+set     version      "3.2.6"
+
+if [ file exists "/sys/class/infiniband/mlx4_0" ] {
+  module add openmpi/1.6.4-mlx4
+} elseif [ file exists "/sys/class/infiniband/mlx5_0" ] {
+  module add openmpi/1.6.4-mlx5
+} elseif [ file exists "/sys/class/infiniband/qib0" ] {
+  module add openmpi/1.6.4-qib
+} elseif [ file exists "/sys/class/net/myri0" ] {
+  module add openmpi/1.6.4-myri
+} else {
+  module add openmpi/1.6.4-eth
+}
+
+if [ module-info mode display ] {
+        ModulesHelp
+}
+
