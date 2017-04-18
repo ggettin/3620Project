@@ -59,3 +59,7 @@ sed -i '0,/fat/s/fat/192.168.0.5 fat/' /etc/hosts
 # cp contrib/systemd/pbs_server.service /usr/lib/systemd/system/
 # systemctl enable pbs_server.service
 # systemctl start pbs_server.service
+
+yum install -y environment-modules
+source ~/.bashrc
+module use /opt/modulefiles
