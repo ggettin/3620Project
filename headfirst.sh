@@ -28,7 +28,7 @@ exportfs -a
 
 
 yum install -y environment-modules
-tar -xzvf modulefiles.tar.gz
+tar -xzvf /users/ggettin/Project/modulefiles.tar.gz
 cp -r modulefiles  /opt/
 source ~/.bashrc
 module use /opt/modulefiles
