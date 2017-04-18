@@ -62,6 +62,6 @@ sed -i '0,/compute-1/s/compute-1/192.168.0.2 compute-1/' /etc/hosts
 # yum -y install environment-modules
 
 
-yum install -y environment-modules
-source ~/.bashrc
-module use /opt/modulefiles
+#yum install -y environment-modules
+#source ~/.bashrc
+#module use /opt/modulefiles
