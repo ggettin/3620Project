@@ -1,5 +1,7 @@
 echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
 
+tar -xzvf job_events.tar.gz
+
 yum -y install nfs-utils
 systemctl enable nfs-server.service
 systemctl start nfs-server.service
@@ -74,7 +76,3 @@ sed -i '0,/scratch/s/scratch/192.168.0.6 scratch/' /etc/hosts
 # cp contrib/systemd/pbs_server.service /usr/lib/systemd/system/
 # systemctl enable pbs_server.service
 # systemctl start pbs_server.service
-
-yum install -y environment-modules
-source ~/.bashrc
-module use /opt/modulefiles
