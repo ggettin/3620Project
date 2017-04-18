@@ -6,6 +6,9 @@ mount 192.168.0.6:/scratch /scratch
 df -h
 mount
 
+mkdir /scratch/asg4
+cp -r /users/ggettin/Project/job_events /scratch/asg4/
+
 echo y | yum install libtool openssl-devel libxml2-devel boost-devel gcc gcc-c++
 echo y | yum install git
 git clone https://github.com/adaptivecomputing/torque.git -b 6.0.1 6.0.1
