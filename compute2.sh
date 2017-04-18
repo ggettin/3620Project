@@ -61,6 +61,7 @@ sed -i '0,/compute-2/s/compute-2/192.168.0.3 compute-2/' /etc/hosts
 # systemctl start pbs_server.service
 
 
-# yum install -y environment-modules
-# source ~/.bashrc
-# module use /opt/modulefiles
+
+#yum install -y environment-modules
+#source ~/.bashrc
+#module use /opt/modulefiles
