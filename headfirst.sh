@@ -27,8 +27,8 @@ echo "/var/nfs 192.168.0.6(rw,sync,no_subtree_check)" >> /etc/exports
 exportfs -a
 
 
-yum install -y environment-modules
-tar -xzvf /users/ggettin/Project/modulefiles.tar.gz
-cp -r modulefiles  /opt/
-source ~/.bashrc
-module use /opt/modulefiles
+#yum install -y environment-modules
+#tar -xzvf /users/ggettin/Project/modulefiles.tar.gz
+#cp -r modulefiles  /opt/
+#source ~/.bashrc
+#module use /opt/modulefiles
