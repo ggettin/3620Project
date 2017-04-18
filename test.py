@@ -180,30 +180,30 @@ if rank == 0:
 vl = comm.gather(topJobs, root = 0)
         
         
-path2 = "/scratch3/ggettin/asg4/task_usage"
-data2 = []
+#path2 = "/scratch3/ggettin/asg4/task_usage"
+#data2 = []
 
-for filename in os.listdir(path2):
-    data2.append(os.path.join(path2,filename))
+#for filename in os.listdir(path2):
+#    data2.append(os.path.join(path2,filename))
     
-for i,gzfile in enumerate(data2):
-    if i%size!=rank: continue
-    parse_taskFile(gzfile)
+#for i,gzfile in enumerate(data2):
+#    if i%size!=rank: continue
+#    parse_taskFile(gzfile)
 
 
-lv = comm.gather(APTop20, root=0) 
+#lv = comm.gather(APTop20, root=0) 
 
 
-if rank == 0:
+#if rank == 0:
     
-    APTop20.sort(key=lambda l:l[1], reverse=True)
+#    APTop20.sort(key=lambda l:l[1], reverse=True)
     
-    for i in range(0, 20):
-        for eventType in main_dict[APTop20[i][0]]:
-            if eventType >= 2 and eventType <= 6:
-                if eventType > APTop20[i][2]:
-                    APTop20[i][2] = eventType
-
+#    for i in range(0, 20):
+#        for eventType in main_dict[APTop20[i][0]]:
+#            if eventType >= 2 and eventType <= 6:
+#                if eventType > APTop20[i][2]:
+#                    APTop20[i][2] = eventType
+#
 
 if rank == 0: 
     print("\n")
@@ -215,14 +215,14 @@ if rank == 0:
 
     print("\n")
     
-    print("JobID\t\tCPUTime\t\tFinalStat") 
-    for i in range(0,20):
-        if APTop20[i][2] == 0:
-            print("%s\t%.1f\t\t%s"%(APTop20[i][0], APTop20[i][1], "None"))
-        else:
-            print("%s\t%.1f\t\t%s"%(APTop20[i][0], APTop20[i][1], APTop20[i][2]))
-
+#    print("JobID\t\tCPUTime\t\tFinalStat") 
+#    for i in range(0,20):
+#        if APTop20[i][2] == 0:
+#            print("%s\t%.1f\t\t%s"%(APTop20[i][0], APTop20[i][1], "None"))
+#        else:
+#            print("%s\t%.1f\t\t%s"%(APTop20[i][0], APTop20[i][1], APTop20[i][2]))
+#
 comm.barrier()
 
-if rank == 0:
-    print("\nExecution Time:")
+#if rank == 0:
+#    print("\nExecution Time:")
