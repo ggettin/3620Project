@@ -19,7 +19,7 @@ echo "/usr/local/tk/lib" >> /etc/ld.so.conf.d/tclx-x86_64.conf
 
 (cd back to Project)
 
-tar -zxvf modules-tcl-1.775.tar.gz
-cd modules-tcl-1.775
-./configure --modulefilesdir=/opt/modulefiles
-make && make install
+tar -zxvf modules3.2.10.tar.gz
+cd modules3.2.10
+# ./configure --modulefilesdir=/opt/modulefiles
+# make && make install
