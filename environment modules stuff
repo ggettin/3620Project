@@ -1,0 +1,9 @@
+sudo su
+
+tar -zxvf tcl8.6.6-src.tar.gz
+cd tcl8.6.6/unix
+./configure --prefix=/usr/local/tcl --enable-threads
+make && make install
+
+tar -zxvf tk8.5.19-src.tar.gz
+cd tk8.5.19/unix
