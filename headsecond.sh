@@ -72,35 +72,35 @@ make packages
 yum -y install epel-release
 yum -y install sshpass
 
-sshpass -p compute1Pass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.2:
-sshpass -p compute1Pass scp torque-package-clients-linux-x86_64.sh 192.168.0.2:
+sshpass -p $compute1Pass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.2:
+sshpass -p $compute1Pass scp torque-package-clients-linux-x86_64.sh 192.168.0.2:
 
-sshpass -p compute2Pass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.3:
-sshpass -p compute2Pass scp torque-package-clients-linux-x86_64.sh 192.168.0.3:
+sshpass -p $compute2Pass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.3:
+sshpass -p $compute2Pass scp torque-package-clients-linux-x86_64.sh 192.168.0.3:
 
-sshpass -p compute3Pass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.4:
-sshpass -p compute3Pass scp torque-package-clients-linux-x86_64.sh 192.168.0.4:
+sshpass -p $compute3Pass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.4:
+sshpass -p $compute3Pass scp torque-package-clients-linux-x86_64.sh 192.168.0.4:
 
-sshpass -p fatPass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.5:
-sshpass -p fatPass scp torque-package-clients-linux-x86_64.sh 192.168.0.5:
+sshpass -p $fatPass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.5:
+sshpass -p $fatPass scp torque-package-clients-linux-x86_64.sh 192.168.0.5:
 
-sshpass -p scratchPass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.6:
-sshpass -p scratchPass scp torque-package-clients-linux-x86_64.sh 192.168.0.6:
+sshpass -p $scratchPass scp -o StrictHostKeyChecking=no torque-package-mom-linux-x86_64.sh 192.168.0.6:
+sshpass -p $scratchPass scp torque-package-clients-linux-x86_64.sh 192.168.0.6:
 
-sshpass -p compute1Pass scp contrib/systemd/pbs_mom.service 192.168.0.2:/usr/lib/systemd/system/
-sshpass -p compute2Pass scp contrib/systemd/pbs_mom.service 192.168.0.3:/usr/lib/systemd/system/
-sshpass -p compute3Pass scp contrib/systemd/pbs_mom.service 192.168.0.4:/usr/lib/systemd/system/
-sshpass -p fatPass scp contrib/systemd/pbs_mom.service 192.168.0.5:/usr/lib/systemd/system/
-sshpass -p scratchPass scp contrib/systemd/pbs_mom.service 192.168.0.6:/usr/lib/systemd/system/
+sshpass -p $compute1Pass scp contrib/systemd/pbs_mom.service 192.168.0.2:/usr/lib/systemd/system/
+sshpass -p $compute2Pass scp contrib/systemd/pbs_mom.service 192.168.0.3:/usr/lib/systemd/system/
+sshpass -p $compute3Pass scp contrib/systemd/pbs_mom.service 192.168.0.4:/usr/lib/systemd/system/
+sshpass -p $fatPass scp contrib/systemd/pbs_mom.service 192.168.0.5:/usr/lib/systemd/system/
+sshpass -p $scratchPass scp contrib/systemd/pbs_mom.service 192.168.0.6:/usr/lib/systemd/system/
 
-sshpass -p compute1Pass ssh root@192.168.0.2 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
+sshpass -p $compute1Pass ssh root@192.168.0.2 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
 
-sshpass -p compute2Pass ssh root@192.168.0.3 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
+sshpass -p $compute2Pass ssh root@192.168.0.3 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
 
-sshpass -p compute3Pass ssh root@192.168.0.4 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
+sshpass -p $compute3Pass ssh root@192.168.0.4 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
 
-sshpass -p fatPass ssh root@192.168.0.5 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
+sshpass -p $fatPass ssh root@192.168.0.5 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
 
-sshpass -p scratchPass ssh root@192.168.0.6 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
+sshpass -p $scratchPass ssh root@192.168.0.6 -t './torque-package-mom-linux-x86_64.sh --install; ./torque-package-clients-linux-x86_64.sh --install; ldconfig; systemctl enable pbs_mom.service; systemctl start pbs_mom.service'
 
 # yum -y install environment-modules
