@@ -1,0 +1,25 @@
+sudo su
+
+tar -zxvf tcl8.6.6-src.tar.gz
+cd tcl8.6.6/unix
+./configure --prefix=/usr/local/tcl --enable-threads
+make && make install
+
+(cd back to Project)
+
+yum -y install libX11-devel
+
+tar -zxvf tk8.5.19-src.tar.gz
+cd tk8.5.19/unix
+./configure --prefix=/usr/local/tk --with-tcl=/usr/local/tcl/lib
+make && make install
+echo "/usr/local/tcl/lib" >> /etc/ld.so.conf.d/tclx-x86_64.conf
+echo "/usr/local/tk/lib" >> /etc/ld.so.conf.d/tclx-x86_64.conf
+/sbin/ldconfig
+
+(cd back to Project)
+
+tar -zxvf modules-tcl-1.775.tar.gz
+cd modules-tcl-1.775
+./configure --modulefilesdir=/opt/modulefiles
+make && make install
