@@ -1,7 +1,7 @@
 sudo su
 
-tar -zxvf tcl8.6.6-src.tar.gz
-cd tcl8.6.6/unix
+tar -zxvf tcl8.5.19-src.tar.gz
+cd tcl8.5.19/unix
 ./configure --prefix=/usr/local/tcl --enable-threads
 make && make install
 
@@ -20,6 +20,8 @@ echo "/usr/local/tk/lib" >> /etc/ld.so.conf.d/tclx-x86_64.conf
 (cd back to Project)
 
 tar -zxvf modules3.2.10.tar.gz
-cd modules3.2.10
-# ./configure --modulefilesdir=/opt/modulefiles
-# make && make install
+cd modules-3.2.10
+./configure --with-module-path=/opt/modulefiles
+make && make install
+
+vi /usr/local/Modules/3.2.10/init/.modulespath
