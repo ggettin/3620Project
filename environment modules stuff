@@ -25,3 +25,7 @@ cd modules-3.2.10
 make && make install
 
 vi /usr/local/Modules/3.2.10/init/.modulespath
+
+sed -i 's/#//' /usr/local/Modules/3.2.10/init/.modulespath
+sed -i 's/^/#/' /usr/local/Modules/3.2.10/init/.modulespath
+sed -i 's/#\/opt\//\/opt\//' /usr/local/Modules/3.2.10/init/.modulespath
