@@ -48,6 +48,8 @@ esac
 
 trap 1 2 3
 
+(end of modules.sh)
+
 
 (cd /Project)
 
@@ -65,4 +67,9 @@ make && make install
 make && make install
 
 (gcc)
-./configure --prefix=/opt/software/mpc --with-gmp=
+wget http://mirrors-usa.go-parts.com/gcc/releases/gcc-5.3.0/gcc-5.3.0.tar.gz
+
+./configure --prefix=/opt/software/mpc --with-gmp=/opt/software/gmp --with-mpfr=/opt/software/mpfr --with-mpc=/opt/software/mpc --enable-multilib
+
+
+
