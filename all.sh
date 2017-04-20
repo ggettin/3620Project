@@ -46,3 +46,34 @@ echo '-zsh|zsh|*/zsh) . /usr/local/Modules/default/init/zsh ;;' >> /etc/profile.
 echo '*) . /usr/local/Modules/default/init/sh ;; # sh and default for scripts' >> /etc/profile.d/modules.sh
 echo 'esac' >> /etc/profile.d/modules.sh
 echo 'trap 1 2 3' >> /etc/profile.d/modules.sh
+
+cd /Project
+
+#(gmp)
+tar -zxvf gmp-4.3.2.tar.gz
+cd gmp-4.3.2
+./configure --prefix=/opt/software/gmp
+make && make install
+
+cd /Project
+
+#(mpfr)
+tar -zxvf mpfr-2.4.2.tar.gz
+cd mpfr-2.4.2
+./configure --prefix=/opt/software/mpfr --with-gmp=/opt/software/gmp
+make && make install
+
+cd /Project
+
+#(mpc)
+tar -zxvf mpc-0.8.1.tar.gz
+cd mpc-0.8.1
+./configure --prefix=/opt/software/mpc --with-gmp=/opt/software/gmp --with-mpfr=/opt/software/mpfr
+make && make install
+
+cd /Project
+
+#(gcc)
+wget http://mirrors-usa.go-parts.com/gcc/releases/gcc-5.3.0/gcc-5.3.0.tar.gz
+
+./configure --prefix=/opt/software/mpc --with-gmp=/opt/software/gmp --with-mpfr=/opt/software/mpfr --with-mpc=/opt/software/mpc --enable-multilib
