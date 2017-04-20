@@ -49,6 +49,13 @@ echo 'trap 1 2 3' >> /etc/profile.d/modules.sh
 
 cd /Project
 
+mkdir /opt/software/
+mkdir /opt/software/gmp
+mkdir /opt/software/mpc
+mkdir /opt/software/mpfr
+mkdir /opt/software/gcc
+mkdir /opt/software/openmpi
+
 #(gmp)
 tar -zxvf gmp-4.3.2.tar.gz
 cd gmp-4.3.2
@@ -77,3 +84,8 @@ cd /Project
 wget http://mirrors-usa.go-parts.com/gcc/releases/gcc-5.3.0/gcc-5.3.0.tar.gz
 
 ./configure --prefix=/opt/software/mpc --with-gmp=/opt/software/gmp --with-mpfr=/opt/software/mpfr --with-mpc=/opt/software/mpc --enable-multilib
+
+mkdir /opt/modulefiles/
+
+cp /Project/ourmodulefiles/* /opt/modulefiles
+
